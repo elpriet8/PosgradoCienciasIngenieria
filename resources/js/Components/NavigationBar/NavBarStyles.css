@@ -1,0 +1,199 @@
+/* Nav Bar Component Styles */
+
+.expand {
+    height: 15vh;
+}
+
+.nav-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    transition: .3s all ease-in-out;
+}
+
+#nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#nav-container {
+    width: 100%;
+    height: 100%;
+}
+
+#navbar-container {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: white;
+}
+
+#logo-uni {
+    width: 21%;
+    margin-left: 3vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#logo-uni a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+#logo-uni a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#navbar-list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.list-item-horizontal {
+    font-size: 16px;
+    color: #222;
+    height: 100%;
+    background: white;
+    transition: .3s all ease-in-out;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+}
+
+.list-item-horizontal:hover {
+    color: #e73039;
+}
+
+.login-only {
+    color: black;
+    font-weight: 600;
+}
+
+.dropdown-menu {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+    background: #e73039;
+}
+
+.dropmenu-list {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dropmenu-item a {
+    color: white;
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+}
+
+.dropmenu-item a:hover {
+    text-decoration: underline;
+}
+
+.svg-arrow {
+    margin-left: 1vw;
+    transform: rotate(0deg);
+    transition: .3s all ease-in-out;
+}
+
+.activeArrow {
+    transform: rotate(180deg);
+}
+
+.activeOption {
+    color: #e73039;
+    text-decoration: underline;
+}
+
+
+/* Sidebar Menu */
+
+#alt-nav {
+    display: none;
+}
+
+#toggle-slide {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    #logo-uni {
+        width: 50vw;
+    }
+    #nav {
+        display: none;
+    }
+    #toggle-slide {
+        display: block;
+        margin-right: 5vw;
+        cursor: pointer;
+        z-index: 3;
+    }
+    #nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 40vw;
+    }
+    #alt-nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        transform: translateX(100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        background: #aaa;
+        width: 55vw;
+        transition: .3s transform ease-in-out;
+    }
+    #alt-navbar-list {
+        width: 96%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .list-item-vertical {
+        width: 89%;
+        margin-top: 2vh;
+    }
+    .item-link {
+        font-size: 23px;
+        transition: .3s all ease-in-out;
+    }
+    .item-link:hover {
+        color: #e73039;
+    }
+}

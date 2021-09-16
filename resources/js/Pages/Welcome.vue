@@ -18,7 +18,7 @@
         <section>
             <div class="content-wrapper-row" style="margin-top:3vh;">
                 <div id="static_map_container">
-                    <img id="static_map_image" src="https://maps.googleapis.com/maps/api/staticmap?center=Universidad+Iberoamericana,Ciudad+de+mexico,MX&zoom=14&size=980x600&maptype=roadmap&markers=color:red%7Clabel:UIA%7C19.370041746012973, -99.26453964298476&key=AIzaSyDnumdWaplH9ASLgghqz-s0vDYNKnuYQho">
+                    <img id="static_map_image" src="https://maps.googleapis.com/maps/api/staticmap?center=Universidad+Iberoamericana,Ciudad+de+mexico,MX&zoom=14&size=980x600&maptype=roadmap&markers=color:red%7Clabel:UIA%7C19.370041746012973, -99.26453964298476&key=">
                 </div>
                 <page-information
                     telefono="52(55)5950-4000"

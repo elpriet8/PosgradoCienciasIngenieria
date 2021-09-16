@@ -3,7 +3,7 @@
     <div id="navbar-container" class="mainheader-styles">
         <div id="logo-uni">
             <a href="/">
-                <img src="/storage/iberologo.gif">
+                <img src="/storage/iberologo.png">
             </a>
         </div>
         <div id="nav-container">
@@ -14,17 +14,11 @@
                         Inicio
                     </a>
                 </li>
-                <li id="1" @click.prevent="setList(
-                    [{name:'Robótica'},{name:'Ciencias de Datos'},{name:'Inteligencia Artificial'},{name:'Ver Todas'}],$event)"
-                    class="list-item-horizontal">
-                    Líneas de Investigación
-                    <svg class="svg-arrow" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>                
+                <li id="1" class="list-item-horizontal">
+                    <a class="item-link" :href="route('lineasinv')">Líneas de Investigación</a>
                 </li>
-                <li id="2" @click.prevent="setList(
-                    [{name:'Formatos de Entrega'},{name:'Reporte Semestral'}],$event)"
-                    class="list-item-horizontal">
-                    Documentos
-                    <svg class="svg-arrow" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>                
+                <li id="2" class="list-item-horizontal">
+                    <a class="item-link" :href="route('documentos')">Documentos</a>
                 </li>
                 <li id="3" @click.prevent="setList(
                     [{name:'Alumnado'},{name:'Aspirantes'},{name:'Academia'}],$event)"
@@ -32,10 +26,9 @@
                     Información
                     <svg class="svg-arrow" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>                
                 </li>
-                <li id="4" class="list-item-horizontal" v-if="canLogin">
-                    <a :href="route('login')" class="login-only">
-                        Iniciar Sesión
-                    </a>
+                <li class="p-options">
+                    <mi-perfil>
+                    </mi-perfil>
                 </li>
                 
             </ul>  
@@ -48,9 +41,16 @@
             <ul class="dropmenu-list">
                 <template v-for="item in list" :key="item.id">
                     <li class="dropmenu-item">
-                        <a :href="route('lineasinv')">
+                        <template v-if="item.name == 'Aspirantes'">
+                        <a :href="route(item.name)">
                             {{item.name}}
                         </a>
+                        </template>
+                        <template v-else>
+                            <a>
+                                {{item.name}}
+                            </a>
+                        </template>
                     </li>
                 </template>
             </ul>
@@ -60,10 +60,11 @@
 
 <script>
 import SidebarMenu from '../SideMenu/SidebarMenu.vue';
+import MiPerfil from './MiPerfil';
 
 export default {
-  components: { SidebarMenu },
-    props:['canLogin','canRegister'],
+  components: { SidebarMenu, MiPerfil },
+    props:[],
     data(){
         return{
             start:true,
@@ -118,5 +119,10 @@ export default {
 </script>
 
 <style>
-    @import './NavBarStyles.css';
+@import './NavBarStyles.css';
+
+.p-options{
+    height:100%;
+}
+
 </style>

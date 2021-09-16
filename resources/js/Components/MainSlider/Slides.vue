@@ -2,7 +2,7 @@
     <!-- Navigation Bullets !-->
     <div id="indicator-container">
         <div ref="bulletsContainer" class="bullets-container">
-            <template v-for="n in image_count" :key="n">
+            <template v-for="n in images.length" :key="n">
                 <span @click.prevent="goToImage(n)" class="bullet-indicator" :id="n"></span>
             </template>
         </div>
@@ -12,12 +12,12 @@
     <div ref="imagesContainer" id="slides-container">
         <template v-for="image in images" :key="image.id">
             <div :id="image.id" class="slide">
-                <div class="slide-info" :style="`background-image:url(/storage/${image.name})`">
+                <div class="slide-info" :style="`background-image:url(/storage/carousel/${image.imagen_path})`">
                     <div class="slide-info-header">
-                        <h1>{{image.caption}}</h1>
+                        <h1>{{image.texto_imagen}}</h1>
                     </div>
                     <div class="slide-info-actions">
-                        <a href="">Ver más</a>
+                        <a :href="route('documentos')">Ver más</a>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@ export default {
         current_image(){
             if(this.counter == 1){
                 setTimeout(()=>{
-                    (this.current_image == this.image_count)? this.current_image=1 : this.current_image++;
+                    (this.current_image == this.images.length)? this.current_image=1 : this.current_image++;
                     this.goToImage(this.current_image);
                     this.counter = 1;
                 },6000);
@@ -52,9 +52,6 @@ export default {
     },
     methods:{
         // Image count is used to delcare the navigation bullets
-        setImageCount(){
-            this.image_count = this.images.length;
-        },
         setCurrentImage(id){ 
             this.counter = 0;
             this.current_image = id;
@@ -73,12 +70,11 @@ export default {
         },
     },
     created(){
-        this.setImageCount();
-        // Go to image with timer to avoid undefined, 100ms
+        // Go to image with timer to avoid undefined, 400ms
         setTimeout(()=>{
             this.goToImage(1);
             this.counter = 1;
-        },100);
+        },400);
     }
 }
 </script>

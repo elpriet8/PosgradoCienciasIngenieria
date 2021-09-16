@@ -12,6 +12,14 @@ class LineasInv extends Model
     use HasFactory;
 
     public static function getAllAreas(){
-        return LineasInv::select('id','titulo','imagen')->get();
+        return LineasInv::select('id','titulo','icono')->get();
+    }
+
+    public static function getLineaInvestigacion($id){
+        return LineasInv::find($id);
+    }
+
+    public static function getObjetivosLinea($id){
+        
     }
 }

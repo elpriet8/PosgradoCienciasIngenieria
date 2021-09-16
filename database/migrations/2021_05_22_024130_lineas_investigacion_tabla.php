@@ -16,13 +16,11 @@ class LineasInvestigacionTabla extends Migration
         Schema::create('lineas_investigacion', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->text('objetivo');
-            $table->string('area1')->nullable();
-            $table->string('area2')->nullable();
-            $table->string('area3')->nullable();
-            $table->string('area4')->nullable();
-            $table->string('labor')->nullable();
+            $table->text('objetivo_general');
+            $table->text('frase');
+            $table->text('frase_autor');
             $table->string('imagen')->nullable();
+            $table->string('icono')->nullable();
             $table->timestamps();
         });
     }

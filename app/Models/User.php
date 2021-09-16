@@ -40,4 +40,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function getUsers_line($linea_id){
+        try {
+            
+            return User::where('id');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
+    public static function getUser($user_id){
+        try {
+            return User::find($user_id);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }

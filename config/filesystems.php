@@ -45,9 +45,32 @@ return [
         'lineasicon' => [
             'driver' => 'local',
             'root' => storage_path('app/public/lineasicon'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL').'/storage/lineasicon',
             'visibility' => 'public',
         ],
+
+        'linea_imgs' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/linea_imgs'),
+            'url' => env('APP_URL').'/storage/lineaimgs',
+            'visibility' => 'public'
+        ],
+
+        'carousel_imgs' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/carousel_imgs'),
+            'url' => env('APP_URL').'/storage/carouselimgs',
+            'visibility' => 'public'
+        ],
+
+        'files' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/files'),
+            'url' => env('APP_URL').'/storage/files',
+            'visibility' => 'public'
+        ],
+
+
 
         's3' => [
             'driver' => 's3',
@@ -58,7 +81,6 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
-
     ],
 
     /*
@@ -74,6 +96,8 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('storage/carousel') => storage_path('app/public/carousel_imgs'),
+        public_path('storage/files') => storage_path('app/public/files')
     ],
 
 ];
